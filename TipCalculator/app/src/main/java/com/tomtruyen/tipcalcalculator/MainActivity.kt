@@ -1,4 +1,4 @@
-package com.tomtruyen.tipcalcalculator
+package com.tomtruyen.tipcalculator
 
 import android.os.Bundle
 import android.text.Editable

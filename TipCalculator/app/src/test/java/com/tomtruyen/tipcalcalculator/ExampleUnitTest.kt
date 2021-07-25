@@ -1,4 +1,4 @@
-package com.tomtruyen.tipcalcalculator
+package com.tomtruyen.tipcalculator
 
 import org.junit.Test
 
