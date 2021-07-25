@@ -7,240 +7,259 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <androidx.cardview.widget.CardView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardElevation="5dp"
-        app:cardUseCompatPadding="true"
-        app:cardCornerRadius="5dp"
-        >
-
-        <!-- Row 1 -->
-        <LinearLayout
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingHorizontal="10dp"
+            app:cardElevation="5dp"
+            app:cardUseCompatPadding="true"
+            app:cardCornerRadius="5dp"
             >
+
+            <!-- Row 1 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:orientation="vertical"
+                android:paddingHorizontal="10dp"
                 >
-                <TextView
-                    android:layout_width="100dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="@string/bill_total"/>
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/billTotalInput"
-                    android:layout_width="0dp"
-                    android:inputType="numberDecimal"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="@string/bill_total"/>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/billTotalInput"
+                        android:layout_width="0dp"
+                        android:inputType="numberDecimal"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="textEnd"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:hint="@string/zero_dollar"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        />
+                </LinearLayout>
+
+                <!-- Row 2 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textAlignment="textEnd"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:hint="@string/zero_dollar"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    />
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:layout_gravity="center"
+                        android:text="@string/tip_percentage"/>
+                    <com.google.android.material.slider.Slider
+                        android:id="@+id/tipPercentageSlider"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:valueFrom="0"
+                        android:valueTo="30"
+                        android:stepSize="1"
+                        android:layout_weight="1"
+                        android:value="15"
+                        />
+                    <TextView
+                        android:id="@+id/tipPercentageText"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/tip_percentage_start"
+                        android:textAlignment="textEnd"
+                        android:layout_marginEnd="15dp"
+                        tools:ignore="RtlCompat" />
+
+                </LinearLayout>
+
+                <!-- Row 3 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:layout_gravity="center"
+                        android:text="@string/split_count"/>
+                    <com.google.android.material.slider.Slider
+                        android:id="@+id/splitCountSlider"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:valueFrom="1"
+                        android:valueTo="20"
+                        android:stepSize="1"
+                        android:value="1"
+                        android:layout_weight="1"
+                        />
+                    <TextView
+                        android:id="@+id/splitCountText"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/split_count_start"
+                        android:textAlignment="textEnd"
+                        android:layout_marginEnd="15dp"
+                        tools:ignore="RtlCompat" />
+
+                </LinearLayout>
             </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-            <!-- Row 2 -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:layout_gravity="center"
-                    android:text="@string/tip_percentage"/>
-                <com.google.android.material.slider.Slider
-                    android:id="@+id/tipPercentageSlider"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:valueFrom="0"
-                    android:valueTo="30"
-                    android:stepSize="1"
-                    android:layout_weight="1"
-                    android:value="15"
-                    />
-                <TextView
-                    android:id="@+id/tipPercentageText"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="@string/tip_percentage_start"
-                    android:textAlignment="textEnd"
-                    android:layout_marginEnd="15dp"
-                    tools:ignore="RtlCompat" />
-
-            </LinearLayout>
-
-            <!-- Row 3 -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:layout_gravity="center"
-                    android:text="@string/split_count"/>
-                <com.google.android.material.slider.Slider
-                    android:id="@+id/splitCountSlider"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:valueFrom="1"
-                    android:valueTo="20"
-                    android:stepSize="1"
-                    android:value="1"
-                    android:layout_weight="1"
-                    />
-                <TextView
-                    android:id="@+id/splitCountText"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="@string/split_count_start"
-                    android:textAlignment="textEnd"
-                    android:layout_marginEnd="15dp"
-                    tools:ignore="RtlCompat" />
-
-            </LinearLayout>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardElevation="5dp"
-        app:cardUseCompatPadding="true"
-        app:cardCornerRadius="5dp"
-        >
-
-        <!-- Row 1 -->
-        <LinearLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingHorizontal="10dp"
+            app:cardElevation="5dp"
+            app:cardUseCompatPadding="true"
+            app:cardCornerRadius="5dp"
             >
+
+            <!-- Row 1 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:orientation="vertical"
+                android:paddingHorizontal="10dp"
                 >
-                <TextView
-                    android:layout_width="100dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="@string/split_tip"/>
-                <TextView
-                    android:id="@+id/splitTipText"
-                    android:layout_width="0dp"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="@string/split_tip"/>
+                    <TextView
+                        android:id="@+id/splitTipText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="textEnd"
+                        android:padding="15dp"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:hint="@string/zero_dollar"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        />
+                </LinearLayout>
+
+                <!-- Row 2 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textAlignment="textEnd"
-                    android:padding="15dp"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:hint="@string/zero_dollar"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    />
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="@string/split_total"/>
+                    <TextView
+                        android:id="@+id/splitTotalText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="textEnd"
+                        android:padding="15dp"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:hint="@string/zero_dollar"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        />
+                </LinearLayout>
             </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-            <!-- Row 2 -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="@string/split_total"/>
-                <TextView
-                    android:id="@+id/splitTotalText"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="textEnd"
-                    android:padding="15dp"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:hint="@string/zero_dollar"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    />
-            </LinearLayout>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardElevation="5dp"
-        app:cardUseCompatPadding="true"
-        app:cardCornerRadius="5dp"
-        >
-
-        <!-- Row 1 -->
-        <LinearLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingHorizontal="10dp"
+            app:cardElevation="5dp"
+            app:cardUseCompatPadding="true"
+            app:cardCornerRadius="5dp"
             >
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="@string/total_tip"/>
-                <TextView
-                    android:id="@+id/totalTipText"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="textEnd"
-                    android:padding="15dp"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:hint="@string/zero_dollar"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    />
-            </LinearLayout>
 
-            <!-- Row 2 -->
+            <!-- Row 1 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:orientation="vertical"
+                android:paddingHorizontal="10dp"
                 >
-                <TextView
-                    android:layout_width="100dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="@string/total"/>
-                <TextView
-                    android:id="@+id/totalText"
-                    android:layout_width="0dp"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="@string/total_tip"/>
+                    <TextView
+                        android:id="@+id/totalTipText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="textEnd"
+                        android:padding="15dp"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:hint="@string/zero_dollar"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        />
+                </LinearLayout>
+
+                <!-- Row 2 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textAlignment="textEnd"
-                    android:padding="15dp"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:hint="@string/zero_dollar"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    />
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="@string/total"/>
+                    <TextView
+                        android:id="@+id/totalText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="textEnd"
+                        android:padding="15dp"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:hint="@string/zero_dollar"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        />
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:layout_gravity="bottom"
+        app:adSize="SMART_BANNER"
+        ads:adUnitId="@string/admob_banner_ad">
+    </com.google.android.gms.ads.AdView>
 
 </LinearLayout>

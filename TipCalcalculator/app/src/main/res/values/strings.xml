@@ -10,4 +10,6 @@
     <string name="split_count">Split count:</string>
     <string name="split_count_start">1</string>
     <string name="split_tip">Split tip:</string>
+    <string name="admob_app_id">ca-app-pub-8796150055601896~3128523072</string>
+    <string name="admob_banner_ad">ca-app-pub-8796150055601896/7539730745</string>
 </resources>

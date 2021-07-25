@@ -5,18 +5,27 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import com.google.android.material.slider.Slider
 import com.google.android.material.textfield.TextInputEditText
 
 
 class MainActivity : AppCompatActivity() {
-    private var totalBill : Double  = 0.0
-    private var tipPercentage : Int = 15
-    private var splitCount : Int = 1
+    private lateinit var mAdView: AdView
+    private var mTotalBill : Double  = 0.0
+    private var mTipPercentage : Int = 15
+    private var mSplitCount : Int = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        MobileAds.initialize(this) {}
+        mAdView = findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
 
         findViewById<TextInputEditText>(R.id.billTotalInput).addTextChangedListener(object :
             TextWatcher {
@@ -26,30 +35,30 @@ class MainActivity : AppCompatActivity() {
             override fun onTextChanged(text: CharSequence?, start: Int, before: Int, count: Int) {
                 val str: String = text?.trim().toString()
 
-                totalBill = if(str.isEmpty()) 0.0 else str.toDouble()
+                mTotalBill = if(str.isEmpty()) 0.0 else str.toDouble()
                 calculate()
             }
         })
 
         findViewById<Slider>(R.id.tipPercentageSlider).addOnChangeListener { _, value, _ ->
-            tipPercentage = value.toInt()
-            findViewById<TextView>(R.id.tipPercentageText).text = "$tipPercentage%"
+            mTipPercentage = value.toInt()
+            findViewById<TextView>(R.id.tipPercentageText).text = "$mTipPercentage%"
             calculate()
         }
 
         findViewById<Slider>(R.id.splitCountSlider).addOnChangeListener { _, value, _  ->
-            splitCount = value.toInt()
-            findViewById<TextView>(R.id.splitCountText).text = splitCount.toString()
+            mSplitCount = value.toInt()
+            findViewById<TextView>(R.id.splitCountText).text = mSplitCount.toString()
             calculate()
         }
     }
 
     fun calculate() {
-        val totalTip : Double = totalBill * (tipPercentage.toDouble() / 100)
-        val totalPrice : Double = totalBill + totalTip
+        val totalTip : Double = mTotalBill * (mTipPercentage.toDouble() / 100)
+        val totalPrice : Double = mTotalBill + totalTip
 
-        val splitTip : Double = totalTip / splitCount
-        val splitPrice : Double = totalPrice / splitCount
+        val splitTip : Double = totalTip / mSplitCount
+        val splitPrice : Double = totalPrice / mSplitCount
 
         val totalTipText : TextView = findViewById(R.id.totalTipText)
         val totalPriceText : TextView = findViewById(R.id.totalText)
