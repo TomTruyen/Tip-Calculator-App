@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Tip Calcalculator</string>
+    <string name="zero_dollar">$0.00</string>
+    <string name="split_total">Split total:</string>
+    <string name="total_tip">Total tip:</string>
+    <string name="total">Total:</string>
+    <string name="bill_total">Bill total:</string>
+    <string name="tip_percentage_start">15%</string>
+    <string name="tip_percentage">Tip %:</string>
+    <string name="split_count">Split count:</string>
+    <string name="split_count_start">1</string>
+    <string name="split_tip">Split tip:</string>
+</resources>
